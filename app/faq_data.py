@@ -4,7 +4,9 @@
             "hours": "We are open Monday to Friday from 9:00 AM to 5:00 PM.",
             "location": "We are located at 123 Main Street, Orlando, FL.",
             "appointment": "To schedule an appointment, please call (555) 123-4567.",
-            "insurance": "We accept most major dental insurance plans. Please call the office to confirm your coverage."
+            "insurance": "We accept most major dental insurance plans. Please call the office to confirm your coverage.",
+            "services": "We provide dental cleanings, exams, fillings, whitening, and appointment support.",
+            "phone": "You can call us at (555) 123-4567."
         }
 
     def find_answer(self, user_question):

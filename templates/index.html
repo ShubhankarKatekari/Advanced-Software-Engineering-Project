@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Front Desk Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>AI Front Desk Assistant</h1>
+
+    <p>Ask a question about BrightCare Dental.</p>
+
+    <form method="POST">
+        <label for="question">Your Question:</label>
+        <input
+            type="text"
+            id="question"
+            name="question"
+            value="{{ user_question }}"
+            placeholder="Type your question here"
+        >
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if error %}
+        <div class="message error">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    {% if response %}
+        <div class="message response">
+            {{ response }}
+        </div>
+    {% endif %}
+</body>
+</html>

@@ -1,11 +1,15 @@
 ﻿import os
 import sys
 from flask import Flask, render_template, request
-from app.chatbot_facade import BusinessChatbotFacade
 from dotenv import load_dotenv
+from app.chatbot_facade import BusinessChatbotFacade
+
 
 load_dotenv()
-OPENAI_API_KEY = os.get_env("OPENAI_API_KEY", "")
+
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
+
+
 def resource_path(relative_path):
     """Get correct path for development and PyInstaller executable."""
     try:
@@ -31,8 +35,6 @@ def index():
     error = None
     user_question = ""
 
-    business_profile = chatbot.get_business_profile()
-
     if request.method == "POST":
         user_question = request.form.get("question", "").strip()
 
@@ -45,8 +47,7 @@ def index():
         "index.html",
         response=response,
         error=error,
-        user_question=user_question,
-        business_profile=business_profile
+        user_question=user_question
     )
 
 

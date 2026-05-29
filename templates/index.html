@@ -20,7 +20,12 @@
             placeholder="Type your question here"
         >
         <br>
-        <button type="submit">Submit</button>
+        <button type="submit" name="action" value="ask_question">Submit</button>
+    </form>
+
+    <form method="POST" class="history-buttons">
+        <button type="submit" name="action" value="view_history">View History</button>
+        <button type="submit" name="action" value="clear_history">Clear History</button>
     </form>
 
     {% if error %}
@@ -33,6 +38,25 @@
         <div class="message response">
             {{ response }}
         </div>
+    {% endif %}
+
+    {% if show_history %}
+        <h2>Conversation History</h2>
+
+        {% if conversation %}
+            <div class="history">
+                {% for item in conversation %}
+                    <div class="history-item">
+                        <p><strong>You:</strong> {{ item.question }}</p>
+                        <p><strong>Assistant:</strong> {{ item.answer }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="message">
+                No conversation history yet.
+            </div>
+        {% endif %}
     {% endif %}
 </body>
 </html>
